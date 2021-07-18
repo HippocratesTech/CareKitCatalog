@@ -34,7 +34,6 @@ import Foundation
 import SwiftUI
 
 struct HigherOrderSection: View {
-
     var body: some View {
         Section(header: Text("Higher Order")) {
             ForEach(HigherOrderStyle.allCases, id: \.rawValue) { style in
@@ -45,7 +44,6 @@ struct HigherOrderSection: View {
 }
 
 private struct HigherOrderDestination: View {
-
     @Environment(\.storeManager) private var storeManager
 
     let style: HigherOrderStyle
@@ -62,7 +60,6 @@ private enum HigherOrderStyle: String, CaseIterable {
 }
 
 private struct AdaptedHigherOrderView: UIViewControllerRepresentable {
-
     let style: HigherOrderStyle
     let storeManager: OCKSynchronizedStoreManager
 

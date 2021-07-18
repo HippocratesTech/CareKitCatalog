@@ -36,7 +36,6 @@ import Foundation
 import SwiftUI
 
 struct MiscellaneousSection: View {
-
     var body: some View {
         Section(header: Text("Miscellaneous")) {
             ForEach(MiscellaneousStyle.allCases, id: \.rawValue) { style in
@@ -49,7 +48,6 @@ struct MiscellaneousSection: View {
 }
 
 private struct MiscellaneousDestination: View {
-
     @Environment(\.storeManager) private var storeManager
 
     let style: MiscellaneousStyle
@@ -78,27 +76,29 @@ private struct MiscellaneousDestination: View {
 }
 
 private enum MiscellaneousStyle: String, CaseIterable {
-
     case link, featuredContent = "featured content"
 
     var supportsSwiftUI: Bool {
         switch self {
-        case .link: return true
-        case .featuredContent: return false
+        case .link:
+            return true
+        case .featuredContent:
+            return false
         }
     }
 
     var supportsUIKit: Bool {
         switch self {
-        case .featuredContent: return true
-        case .link: return false
+        case .featuredContent:
+            return true
+        case .link:
+            return false
         }
     }
 }
 
 @available(iOS 14, *)
 private struct MiscellaneousView: View {
-
     var links: [OTFCareKitUI.LinkItem] {
         [
             .website("https://www.apple.com", title: "Apple"),
@@ -125,7 +125,6 @@ private struct MiscellaneousView: View {
 }
 
 private struct AdaptedMiscellaneousView: UIViewControllerRepresentable {
-
     let style: MiscellaneousStyle
 
     func makeUIViewController(context: Context) -> UIViewController {

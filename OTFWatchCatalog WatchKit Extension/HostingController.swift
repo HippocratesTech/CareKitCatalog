@@ -38,7 +38,6 @@ class HostingController: WKHostingController<ContentView> {
 }
 
 struct ContentView: View {
-
     @Environment(\.storeManager) private var storeManager
 
     @ViewBuilder var body: some View {

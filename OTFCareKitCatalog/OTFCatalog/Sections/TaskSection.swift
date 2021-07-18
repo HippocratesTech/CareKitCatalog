@@ -35,7 +35,6 @@ import Foundation
 import SwiftUI
 
 struct TaskSection: View {
-
     var body: some View {
         Section(header: Text("Task")) {
             ForEach(TaskStyle.allCases, id: \.rawValue) { style in
@@ -48,7 +47,6 @@ struct TaskSection: View {
 }
 
 private struct TaskDestination: View {
-
     @Environment(\.storeManager) private var storeManager
 
     let style: TaskStyle
@@ -83,7 +81,6 @@ private struct TaskDestination: View {
 }
 
 private enum TaskStyle: String, CaseIterable {
-
     case grid, checklist
     case simple, instructions, labeledValue = "labeled value", numericProgress = "Numeric Progress"
     case buttonLog = "button log"
@@ -92,15 +89,19 @@ private enum TaskStyle: String, CaseIterable {
         guard #available(iOS 14, *) else { return false }
 
         switch self {
-        case .simple, .instructions, .labeledValue, .numericProgress: return true
-        case .grid, .checklist, .buttonLog: return false
+        case .simple, .instructions, .labeledValue, .numericProgress:
+            return true
+        case .grid, .checklist, .buttonLog:
+            return false
         }
     }
 
     var supportsUIKit: Bool {
         switch self {
-        case .simple, .instructions, .grid, .checklist, .buttonLog: return true
-        case .labeledValue, .numericProgress: return false
+        case .simple, .instructions, .grid, .checklist, .buttonLog:
+            return true
+        case .labeledValue, .numericProgress:
+            return false
         }
     }
 }
@@ -108,7 +109,6 @@ private enum TaskStyle: String, CaseIterable {
 #if HEALTH
 @available(iOS 14.0, *)
 private struct TaskView: View {
-
     @Environment(\.storeManager) private var storeManager
 
     let style: TaskStyle
@@ -149,7 +149,6 @@ private struct TaskView: View {
                 }
             case .labeledValue:
                 VStack(spacing: 16) {
-
                     // HealthKit linked view
                     OTFCareKit.LabeledValueTaskView(taskID: OCKHealthKitPassthroughStore.Tasks.steps.rawValue,
                                                  eventQuery: .init(for: Date()), storeManager: storeManager) { controller in
@@ -177,7 +176,6 @@ private struct TaskView: View {
 #endif
 
 private struct AdaptedTaskView: UIViewControllerRepresentable {
-
     let style: TaskStyle
     let storeManager: OCKSynchronizedStoreManager
 
@@ -216,7 +214,6 @@ private struct AdaptedTaskView: UIViewControllerRepresentable {
 }
 
 private extension LabeledValueTaskViewState {
-
     static func fromViewModel(state: LabeledValueTaskViewModel.State?) -> Self {
         guard let state = state else {
             return .incomplete(Text(""))

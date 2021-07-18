@@ -32,8 +32,5 @@ import Foundation
 import XCTest
 
 class OCKCatalogTests: XCTestCase {
-
-    func testCatalog() {
-        
-    }
+    func testCatalog() { }
 }

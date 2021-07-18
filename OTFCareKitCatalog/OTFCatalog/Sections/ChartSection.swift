@@ -35,7 +35,6 @@ import Foundation
 import SwiftUI
 
 struct ChartSection: View {
-
     var body: some View {
         Section(header: Text("Chart")) {
             ForEach(OCKCartesianGraphView.PlotType.allCases, id: \.rawValue) { style in
@@ -46,7 +45,6 @@ struct ChartSection: View {
 }
 
 private struct ChartDestination: View {
-
     @Environment(\.storeManager) private var storeManager
 
     let style: OCKCartesianGraphView.PlotType
@@ -62,7 +60,6 @@ private struct ChartDestination: View {
 }
 
 private struct AdaptedChartView: UIViewControllerRepresentable {
-
     let style: OCKCartesianGraphView.PlotType
     let storeManager: OCKSynchronizedStoreManager
 
@@ -105,5 +102,4 @@ private struct AdaptedChartView: UIViewControllerRepresentable {
         chartViewController.chartView.headerView.titleLabel.text = OCKStore.Tasks.doxylamine.rawValue.capitalized
         return chartViewController
     }
-
 }

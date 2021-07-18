@@ -32,7 +32,6 @@ import Foundation
 import SwiftUI
 
 struct PlatformPicker<UIKitView: View, SwiftUIView: View>: View {
-
     @State private var selectedPlatform = 0
 
     private let platforms = ["UIKit", "SwiftUI"]
@@ -46,9 +45,7 @@ struct PlatformPicker<UIKitView: View, SwiftUIView: View>: View {
 
     var body: some View {
         VStack(spacing: 0) {
-
             VStack {
-
                 Picker(selection: $selectedPlatform, label: Text("Platform")) {
                     ForEach(0..<platforms.count) { index in
                         Text(self.platforms[index])

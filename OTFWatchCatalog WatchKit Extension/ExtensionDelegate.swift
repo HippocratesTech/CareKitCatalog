@@ -34,7 +34,6 @@ import WatchConnectivity
 import WatchKit
 
 class ExtensionDelegate: NSObject, WKExtensionDelegate {
-
     private lazy var peer = OCKWatchConnectivityPeer()
     private lazy var store = OCKStore(name: "catalog-store", type: .inMemory, remote: peer)
     private(set) lazy var storeManager = OCKSynchronizedStoreManager(wrapping: store)
@@ -61,7 +60,6 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
 }
 
 class SessionManager: NSObject, WCSessionDelegate {
-
     fileprivate(set) var peer: OCKWatchConnectivityPeer!
     fileprivate(set) var store: OCKStore!
 
@@ -69,7 +67,6 @@ class SessionManager: NSObject, WCSessionDelegate {
         _ session: WCSession,
         activationDidCompleteWith activationState: WCSessionActivationState,
         error: Error?) {
-
         print("New session state: \(activationState)")
     }
 
@@ -77,7 +74,6 @@ class SessionManager: NSObject, WCSessionDelegate {
         _ session: WCSession,
         didReceiveMessage message: [String: Any],
         replyHandler: @escaping ([String: Any]) -> Void) {
-
         print("Received message from peer!")
 
         peer.reply(to: message, store: store) { reply in

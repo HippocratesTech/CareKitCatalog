@@ -32,7 +32,6 @@ import Foundation
 import SwiftUI
 
 struct CardBackground<Content: View>: View {
-
     private let content: Content
 
     init(@ViewBuilder content: () -> Content) {

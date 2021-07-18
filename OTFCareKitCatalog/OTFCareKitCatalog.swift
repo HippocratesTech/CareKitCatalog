@@ -18,7 +18,6 @@ public protocol OTFCareKitCatalogProtocol {
 }
 
 public class OTFCareKitCatalog: OTFCareKitCatalogProtocol {
-
     private(set) lazy var peer = OCKWatchConnectivityPeer()
     private(set) lazy var cdStore = OCKStore(name: "carekit-catalog-cd", type: .inMemory, remote: peer)
     #if HEALTH
@@ -33,7 +32,6 @@ public class OTFCareKitCatalog: OTFCareKitCatalogProtocol {
     }()
 
     lazy public var storeManager: OCKSynchronizedStoreManager = {
-
         cdStore.fillWithDummyData()
         #if HEALTH
         hkStore.fillWithDummyData()
@@ -57,11 +55,9 @@ public class OTFCareKitCatalog: OTFCareKitCatalogProtocol {
         window.tintColor = UIColor { $0.userInterfaceStyle == .light ? #colorLiteral(red: 0.9960784314, green: 0.3725490196, blue: 0.368627451, alpha: 1) : #colorLiteral(red: 0.8627432641, green: 0.2630574384, blue: 0.2592858295, alpha: 1) }
         window.makeKeyAndVisible()
     }
-
 }
 
 private class SessionManager: NSObject, WCSessionDelegate {
-
     fileprivate var peer: OCKWatchConnectivityPeer!
     fileprivate var store: OCKStore!
 
@@ -69,7 +65,6 @@ private class SessionManager: NSObject, WCSessionDelegate {
         _ session: WCSession,
         activationDidCompleteWith activationState: WCSessionActivationState,
         error: Error?) {
-
         print("WCSession activation did complete: \(activationState)")
     }
 
@@ -85,7 +80,6 @@ private class SessionManager: NSObject, WCSessionDelegate {
         _ session: WCSession,
         didReceiveMessage message: [String: Any],
         replyHandler: @escaping ([String: Any]) -> Void) {
-
         print("Did receive message!")
 
         peer.reply(to: message, store: store) { reply in

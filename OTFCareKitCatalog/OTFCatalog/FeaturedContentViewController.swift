@@ -34,7 +34,6 @@ import Foundation
 import UIKit
 
 class FeaturedContentViewController: UIViewController, OCKFeaturedContentViewDelegate {
-
     static let html = """
         <p>It&#39s tough balancing a busy schedule. During the busiest of times, healthy routines are often the first things we sacrifice to \
         make more room in the day for work or family. But sacrificing healthy \

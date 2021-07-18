@@ -33,7 +33,6 @@ import Foundation
 import SwiftUI
 
 private struct StoreManagerEnvironmentKey: EnvironmentKey {
-
     static var defaultValue: OCKSynchronizedStoreManager {
         let appDelegate = OTFCareKitCatalog.shared
         return appDelegate.storeManager
@@ -41,7 +40,6 @@ private struct StoreManagerEnvironmentKey: EnvironmentKey {
 }
 
 public extension EnvironmentValues {
-
     var storeManager: OCKSynchronizedStoreManager {
         get { self[StoreManagerEnvironmentKey.self] }
         set { self[StoreManagerEnvironmentKey.self] = newValue }

@@ -34,7 +34,6 @@ import Foundation
 import SwiftUI
 
 struct ContactSection: View {
-
     var body: some View {
         Section(header: Text("Contact")) {
             ForEach(ContactStyle.allCases, id: \.rawValue) { style in
@@ -45,7 +44,6 @@ struct ContactSection: View {
 }
 
 private struct ContactDestination: View {
-
     @Environment(\.storeManager) private var storeManager
 
     let style: ContactStyle
@@ -65,7 +63,6 @@ private enum ContactStyle: String, CaseIterable {
 }
 
 private struct AdaptedTaskView: UIViewControllerRepresentable {
-
     let style: ContactStyle
     let storeManager: OCKSynchronizedStoreManager
 

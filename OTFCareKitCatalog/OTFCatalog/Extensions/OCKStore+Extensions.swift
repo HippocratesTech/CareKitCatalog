@@ -44,7 +44,6 @@ extension OCKSchedule {
 }
 
 extension OCKStore {
-
     enum Tasks: String, CaseIterable {
         case doxylamine
         case nausea
@@ -61,15 +60,19 @@ extension OCKStore {
         let aFewDaysAgo = Calendar.current.startOfDay(for: Calendar.current.date(byAdding: .day, value: -10, to: Date())!)
         addTasks(makeTasks(on: aFewDaysAgo), callbackQueue: .main) { result in
             switch result {
-            case .failure(let error): print("[ERROR] \(error.localizedDescription)")
-            case .success: break
+            case .failure(let error):
+                print("[ERROR] \(error.localizedDescription)")
+            case .success:
+                break
             }
         }
 
         addContacts(makeContacts(), callbackQueue: .main) { result in
             switch result {
-            case .failure(let error): print("[ERROR] \(error.localizedDescription)")
-            case .success: break
+            case .failure(let error):
+                print("[ERROR] \(error.localizedDescription)")
+            case .success:
+                break
             }
         }
     }

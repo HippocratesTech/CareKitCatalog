@@ -35,12 +35,10 @@ import HealthKit
 import SwiftUI
 
 struct CatalogView: View {
-
     @State private var didRequestHealthKitAccess = false
     @State private var isHealthKitAvailable = false
 
     @ViewBuilder var body: some View {
-
         // Placeholder background while requesting HealthKit permissions
         if !UIApplication.isRunningTest && !didRequestHealthKitAccess {
             Color(UIColor.secondarySystemGroupedBackground)
